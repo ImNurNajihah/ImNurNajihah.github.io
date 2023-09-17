@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="logo KL.png"> <!--icon dekat tab-->
+    <title>KataLaluan</title> <!--tajuk dekat tab-->
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- <div class="black-rectangle"></div> -->
+    <div class="Logo">
+        <img src="logo KL.png" alt="Image">
+        <header>KataLaluan</header>
+    </div>
+
+    <div class="PC">
+        <header>Password Strength Checker</header>
+    </div>
+
+    <div class="EnterPass">
+        <header>How Strong is Your Password?</header>
+        <p>Don't worry, we never stored your passwords.</p>
+
+        <p id="tips-message"> Do not include any personal information (name, birth date, PIN, ID, etc.) because hacker can use it to guess your password.</p>
+
+        <div class="container">
+            <input type="password" id="password" placeholder="Enter your password" oninput="calculateTotalScore()">
+            
+            <span id="toggle" onclick="toggle()">
+                <i class="fas fa-eye"></i>
+            </span>
+
+            <div class="strength_bar"></div>
+
+            <input type="checkbox" id="checkbox" class="custom-checkbox">
+
+            <label class="checkbox-label">I have use this password for multiple accounts</label>
+
+            <p id="text">Your Password is</p>
+
+            <p id="msg"></p> <!-- Show Password Strength -->
+
+            
+        </div>
+    </div>
+
+    <div class="messages-container">
+        <div class="left-section">
+            <p id="length-message"></p>
+            <p id="complexity-message"></p>
+            <p id="entropy-message"></p>
+            <p id="predectability-message"></p>
+            <p id="keyboard-message"></p>
+            <p id="dictionary-message"></p>
+            <p id="passreuse-message"></p>
+        </div>
+
+        <div class="right-section">
+            <div>
+                <p id="BF">>> Estimated time to brute-force your password:</p>
+                <p id="Note">The calculation is based on using 128GB + RTX6000 GPU x 4</p>
+                <label for="option">Number of Attempts Per Second:</label>
+                <select id="option">
+                    <option value="1">MD5: 2071.5 MH/s</option>
+                    <option value="2">SHA1: 128.5 MH/s</option>
+                    <option value="3">SHA2-224: 645.0 MH/s</option>
+                    <option value="4">Custom</option>
+                </select>
+                <div id="customRInput" style="display: none;">
+                    <input for="customR" type="number" id="customR" placeholder="Enter a custom value">
+                </div>
+                <p id="took">It will take about:</p>
+                <div id="bruteForceTimeMessage">0 seconds</div>
+            </div>
+            <!-- New element to display estimated time -->
+            <p id="didyouknow">Did you know?</p>
+            <p id="info">The estimated time is influenced by the password length, hardware speed, and information about the password.</p>
+        </div>
+        
+
+    </div>
+      
+    <!--Script-->
+    <script src="script.js"></script>
+</body>
+</html>
